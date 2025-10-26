@@ -1,0 +1,482 @@
+/*
+========================================
+    CSS Personalizado con Variables
+========================================
+*/
+/* --- REGISTRO DE FUENTES PERSONALIZADAS --- */
+
+@font-face {
+  /* 1. Le das un nombre para usarla en tu CSS */
+  font-family: 'Le Jour Serif';
+  
+  /* 2. Le dices dónde está el archivo */
+  /* ¡IMPORTANTE! Esta ruta asume que tu CSS está en una subcarpeta (ej: /css)
+    y las fuentes en /recursos/font. 
+    Si tu CSS está en la raíz, borra el '../' de la línea de abajo.
+  */
+  src: url('recursos/font/Le\ Jour\ Serif\ Personal\ Use\ Only.otf') format('opentype'); /* <-- CORREGIDO */
+}
+
+@font-face {
+  /* 1. Le das un nombre */
+  font-family: 'Parfumerie Script Pro';
+  
+  /* 2. Le dices dónde está el archivo (ver nota de ruta anterior) */
+  src: url('recursos/font/ParfumerieScriptPro.ttf') format('truetype'); /* <-- CORREGIDO */
+  
+  /* Opcional: define el peso si es necesario */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Estilos del texto de la marca en la Navbar */
+#brand-title-1 {
+    display: block;
+    font-family: 'Le Jour Serif', serif; /* ¡Ahora sí funcionará! */
+    font-size: 20px; 
+    line-height: 1.1;
+    color: var(--color-primary); /* <-- AÑADIDO (para visibilidad) */
+}
+
+#brand-subtitle-1 {
+    display: block; 
+    font-family: 'Parfumerie Script Pro'; /* ¡Ahora sí funcionará! */
+    font-size: 30px;
+    line-height: 1.1;
+    color: var(--color-primary); /* <-- AÑADIDO (para visibilidad) */
+}
+
+/* 3. Diseño Específico: Paleta de Colores y Tipografía */
+:root {
+    /* Paleta de Colores */
+    --color-primary: #2a2929; /* Azul Oscuro */
+    --color-secondary: #323131; /* Turquesa/Secundario */
+    --color-accent: #8b7575; /* Naranja/Acento */
+    --color-light: #94eb77; /* Color de fondo claro */
+
+    /* Tipografía */
+    --font-family-base: 'Arial', sans-serif;
+}
+
+/* Base Global */
+body {
+    font-family: var(--font-family-base);
+    color: var(--color-primary);
+    line-height: 1.6;
+}
+
+/* Clases de utilidad para colores en Bootstrap */
+.text-primary-color { color: var(--color-primary) !important; }
+.text-secondary-color { color: var(--color-secondary) !important; }
+.text-accent-color { color: var(--color-accent) !important; }
+/* Se utiliza bg-secondary-color-light para las nuevas secciones de fondo */
+.bg-secondary-color-light { background-color: #fefe89; } /* Turquesa muy claro */
+
+/*
+========================================
+    NAVEGACIÓN Y HEADER
+========================================
+*/
+
+/* Menú fijo superior */
+.navbar {
+    background-color: rgba(67, 66, 66, 0.95); /* Semi-transparente del primario */
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--color-accent) !important;
+}
+
+/*
+========================================
+    SECCIÓN INICIO (HERO)
+========================================
+*/
+
+.hero-section {
+    min-height: 100vh;
+    background: linear-gradient(rgba(66, 66, 65, 0.8), rgba(144, 146, 148, 0.8)),
+                url('recursos/sindrome-down-inclusionjpg.webp') no-repeat center center;
+    background-size: cover; /* Imagen destacada responsive con object-fit: cover implícito en background-size */
+    padding-top: 56px; /* Para compensar la barra de navegación fija */
+}
+
+/* Ajuste para un look más formal en el Hero */
+.hero-content-box {
+    background-color: rgba(45, 45, 45, 0.3); /* Ligera sombra para mejorar legibilidad */
+    padding: 3rem !important;
+    border-radius: 10px;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.intro-paragraph {
+    max-width: 900px;
+    font-weight: 400; /* Un poco más de peso para el texto principal */
+    font-size: 1.3rem;
+}
+
+.intro-paragraph-detail {
+    max-width: 800px;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+/* Botón CTA grande */
+.cta-button {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    font-weight: bold;
+    padding: 1rem 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #615e5e; /* Tono más oscuro de acento */
+    border-color: #b0e1a1;
+    transform: scale(1.05); /* Efecto hover */
+}
+
+/*
+========================================
+    SECCIÓN SERVICIOS
+========================================
+*/
+
+/* Efectos hover y sombras en cards */
+.service-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important; /* Sombras en cards */
+}
+
+/* Imágenes responsive con object-fit: cover */
+.service-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/*
+========================================
+    SECCIÓN EQUIPO
+========================================
+*/
+.team-card {
+    background-color: var(--color-light);
+    border: 1px solid #f8d95e;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.team-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--color-secondary);
+}
+
+/*
+========================================
+    SECCIÓN PROGRESO (NUEVA)
+========================================
+*/
+.progress-card {
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 5px solid var(--color-secondary); /* Detalle de color */
+}
+
+.progress-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.1) !important;
+}
+
+.progress-img {
+    height: 180px;
+    object-fit: cover;
+    width: 100%;
+}
+
+
+/*
+========================================
+    SECCIÓN TESTIMONIOS (CARRUSEL)
+========================================
+*/
+
+.testimonial-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    /* Sombras en cards */
+    box-shadow: 0 4px 12px rgba(88, 88, 88, 0.08);
+}
+
+.testimonial-photo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%; /* Foto circular */
+    border: 3px solid var(--color-primary);
+}
+
+/* Animación de Latido del Corazón */
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.heart-beat {
+    animation: heartBeat 1.5s infinite ease-in-out;
+}
+
+/* Bordes Animados tipo Arcoíris (Ejemplo usando gradientes) */
+.rainbow-border-1, .rainbow-border-2, .rainbow-border-3, .rainbow-border-4, .rainbow-border-5,
+.rainbow-border-6, .rainbow-border-7, .rainbow-border-8, .rainbow-border-9, .rainbow-border-10 {
+    position: relative;
+    border: none; /* Eliminar el borde normal de Bootstrap */
+    z-index: 1;
+}
+
+.rainbow-border-1::before, .rainbow-border-2::before, .rainbow-border-3::before, .rainbow-border-4::before, .rainbow-border-5::before,
+.rainbow-border-6::before, .rainbow-border-7::before, .rainbow-border-8::before, .rainbow-border-9::before, .rainbow-border-10::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    padding: 3px; /* Ancho del borde */
+    background: linear-gradient(45deg, red, orange, yellow, green, rgb(0, 0, 0), indigo, violet);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+    transition: opacity 0.3s, transform 0.5s;
+    background-size: 200% 200%;
+    animation: rainbow-shift 5s ease infinite alternate;
+}
+
+/* Animación para el color del borde */
+@keyframes rainbow-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Estilo para que se vea la animación en el hover */
+.testimonial-card:hover::before {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* Controles del Carrusel fuera del Card Group */
+.testimonial-control-prev, .testimonial-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    background-color: rgba(80, 80, 80, 0.7); /* Primario oscuro semi-transparente */
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    opacity: 1;
+    transition: background-color 0.3s;
+}
+
+.testimonial-control-prev {
+    left: -50px; /* Separado a la izquierda */
+}
+
+.testimonial-control-next {
+    right: -50px; /* Separado a la derecha */
+}
+
+.testimonial-control-prev:hover, .testimonial-control-next:hover {
+    background-color: var(--color-secondary);
+}
+
+/* Media Query para responsividad de los botones */
+@media (max-width: 992px) {
+    .testimonial-control-prev {
+        left: 0;
+    }
+    .testimonial-control-next {
+        right: 0;
+    }
+    .carousel-control-prev, .carousel-control-next {
+        opacity: 0.8;
+    }
+}
+
+/*
+========================================
+    SECCIÓN CONTACTO
+========================================
+*/
+
+/* Sombras en formulario y card */
+.contact-card, #contacto .card {
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Animación al hacer hover en tarjeta de contacto */
+.hover-lift {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.contact-phone {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.btn-accent {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: white;
+    transition: all 0.3s;
+}
+.btn-coml
+{
+ background-color: #ff0000 !important;
+ border-color: var(--color-accent);
+ color: rgb(252, 252, 252);
+ transition: all 0.3s;
+}
+
+
+
+.btn-accent:hover {
+    background-color: #d18810;
+    border-color: #d18810;
+    color: white;
+    transform: scale(1.02);
+}
+
+.whatsapp-btn {
+    background-color: #ff0606;
+    border-color: #5c5959;
+    transition: all 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background-color: #ff1414;
+    border-color: #11cb33;
+}
+
+/*
+========================================
+    FOOTER
+========================================
+*/
+
+footer {
+    background-color: var(--color-primary);
+}
+
+.social-icon-link {
+    color: var(--color-light);
+    transition: color 0.3s, transform 0.3s;
+    text-decoration: none;
+}
+
+.social-icon-link:hover {
+    color: var(--color-secondary);
+    transform: scale(1.1);
+}
+
+/*
+========================================
+    MODAL DE CONFIRMACIÓN
+========================================
+*/
+.modal-icon-animation {
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+/*
+========================================
+    MEDIA QUERIES (Responsividad)
+========================================
+*/
+
+/* Tablet y dispositivos más pequeños */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+
+    .hero-section {
+        min-height: 80vh;
+    }
+    
+    .contact-phone {
+        font-size: 2rem;
+    }
+}
+
+/* Móvil */
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .testimonial-control-prev, .testimonial-control-next {
+        /* Ocultar botones o hacerlos más pequeños en móvil si interfieren */
+        display: none;
+    }
+}
