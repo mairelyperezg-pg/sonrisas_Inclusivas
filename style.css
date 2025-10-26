@@ -14,7 +14,7 @@
     y las fuentes en /recursos/font. 
     Si tu CSS está en la raíz, borra el '../' de la línea de abajo.
   */
-  src: url('recursos/font/Le\ Jour\ Serif\ Personal\ Use\ Only.otf') format('opentype'); /* <-- CORREGIDO */
+  src: url('Le\ Jour\ Serif\ Personal\ Use\ Only.otf') format('opentype'); /* <-- CORREGIDO */
 }
 
 @font-face {
@@ -22,7 +22,7 @@
   font-family: 'Parfumerie Script Pro';
   
   /* 2. Le dices dónde está el archivo (ver nota de ruta anterior) */
-  src: url('recursos/font/ParfumerieScriptPro.ttf') format('truetype'); /* <-- CORREGIDO */
+  src: url('ParfumerieScriptPro.ttf') format('truetype'); /* <-- CORREGIDO */
   
   /* Opcional: define el peso si es necesario */
   font-weight: normal;
@@ -481,3 +481,4 @@ footer {
     }
 
 }
+
