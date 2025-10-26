@@ -108,7 +108,7 @@ body {
 .hero-section {
     min-height: 100vh;
     background: linear-gradient(rgba(66, 66, 65, 0.8), rgba(144, 146, 148, 0.8)),
-                url('recursos/sindrome-down-inclusionjpg.webp') no-repeat center center;
+                url('sindrome-down-inclusionjpg.webp') no-repeat center center;
     background-size: cover; /* Imagen destacada responsive con object-fit: cover implícito en background-size */
     padding-top: 56px; /* Para compensar la barra de navegación fija */
 }
@@ -479,4 +479,5 @@ footer {
         /* Ocultar botones o hacerlos más pequeños en móvil si interfieren */
         display: none;
     }
+
 }
